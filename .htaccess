@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^(.*)$ index.php?_url=$1 [QSA]
+</IfModule>
+<IfModule mod_headers.c>
+  Header set Connection keep-alive
+	Header always append X-Frame-Options DENY
+</IfModule>
+php_flag display_errors On
